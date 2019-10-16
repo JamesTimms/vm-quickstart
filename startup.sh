@@ -2,7 +2,7 @@
 set -e
 
 custom_colour() {
-  sudo tee -a /etc/bashrc > /dev/null <<EOT
+  sudo tee -a $BASHRC_FILE > /dev/null <<EOT
 
 #Custom colour
 parse_git_branch() {
@@ -13,6 +13,7 @@ EOT
 
 }
 
+BASHRC_FILE="/etc/bashrc"
 YUM_PACKAGE_NAME="python python-devl python-pip openssl-devel git"
 DEB_PACKAGE_NAME="python2.7 python-dev python-pip libssl-dev git"
 
@@ -43,6 +44,7 @@ DEB_PACKAGE_NAME="python2.7 python-dev python-pip libssl-dev git"
     echo "==============================================="
     apt-get update
     apt-get install -y $DEB_PACKAGE_NAME
+    BASHRC_FILE="/etc/bash.bashrc"
   elif cat /etc/*release | grep ^NAME | grep Debian ; then
     echo "==============================================="
     echo "Installing packages $DEB_PACKAGE_NAME on Debian"
