@@ -7,5 +7,8 @@ Used for personal projects and a dumping ground for random scripts. Run scripts 
 ## Requirements
 A relatively modern linux Shell.
 
+## TODO
+- Auto discover the latest version of gcloud and install that by default.
+
 ## License
 MIT
