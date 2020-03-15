@@ -8,7 +8,8 @@ Used for personal projects and a dumping ground for random scripts. Run scripts 
 A relatively modern linux Shell.
 
 ## TODO
-- Auto discover the latest version of gcloud and install that by default.
+- [ ] Auto discover the latest version of gcloud and install that by default.
+- [ ] Create bootstrap script that setups basics and then downloads this repository to continue setup process.
 
 ## License
 MIT
