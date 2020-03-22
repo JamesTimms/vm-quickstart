@@ -2,7 +2,8 @@
 set -e
 
 custom_colour() {
-  sudo tee -a $BASHRC_FILE > /dev/null <<EOT
+  sudo touch /etc/profile.d/gitcolor.sh
+  sudo tee -a $BASH_CUST_FILE > /dev/null <<EOT
 
 #Custom colour
 parse_git_branch() {
@@ -13,31 +14,33 @@ EOT
 
 }
 
-BASHRC_FILE="/home/$USER/.bashrc"
+BASH_CUST_FILE="/etc/profile.d/gitcolor.sh"
 YUM_PACKAGE_NAME="python python-devl python-pip openssl-devel git"
 DEB_PACKAGE_NAME="python2.7 python-dev python-pip libssl-dev git"
 
+touch startup.test
+
   if cat /etc/*release | grep ^NAME | grep CentOS; then
+    custom_colour
     echo "==============================================="
     echo "Installing packages $YUM_PACKAGE_NAME on CentOS"
     echo "==============================================="
     sudo yum update -y
     sudo yum install -y $YUM_PACKAGE_NAME
-    custom_colour
   elif cat /etc/*release | grep ^NAME | grep Red; then
+    custom_colour
     echo "==============================================="
     echo "Installing packages $YUM_PACKAGE_NAME on RedHat"
     echo "==============================================="
     sudo yum update -y
     sudo yum install -y $YUM_PACKAGE_NAME
-    custom_colour
   elif cat /etc/*release | grep ^NAME | grep Fedora; then
+    custom_colour
     echo "================================================"
     echo "Installing packages $YUM_PACKAGE_NAME on Fedorea"
     echo "================================================"
     sudo yum update -y
     sudo yum install -y $YUM_PACKAGE_NAME
-    custom_colour
   elif cat /etc/*release | grep ^NAME | grep Ubuntu; then
     echo "==============================================="
     echo "Installing packages $DEB_PACKAGE_NAME on Ubuntu"
