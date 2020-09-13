@@ -2,7 +2,7 @@
 set -e
 
 custom_colour() {
-  sudo touch /etc/profile.d/gitcolor.sh
+  sudo touch $BASH_CUST_FILE
   sudo tee -a $BASH_CUST_FILE > /dev/null <<EOT
 
 #Custom colour
